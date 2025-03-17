@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Quiz Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-top: 20px;
+        }
+
+        .content {
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .video-container {
+            margin-bottom: 30px;
+        }
+
+        .quiz-container {
+            margin-top: 40px;
+        }
+
+        .quiz-container label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .quiz-container button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .quiz-container button:hover {
+            background-color: #45a049;
+        }
+
+        .audio-player {
+            margin-top: 30px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>TENHA UMA VIDA SAUDÁVEL COM O CHÁ DIAMADEU</h1>
+
+    <!-- Video Section -->
+    <div class="content video-container">
+        <h2>Assista ao Vídeo</h2>
+        <video width="320" height="240" controls>
+            <source src="drinking.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <!-- Audio Section -->
+    <div class="content audio-player">
+        <h2>Listen to This Sound</h2>
+        <audio controls>
+            <source src="SeuAmadeu.mp3" type="audio/mp3">
+            Your browser does not support the audio tag.
+        </audio>
+    </div>
+
+    <!-- Quiz Section -->
+    <div class="content quiz-container">
+        <h2>Take the Quiz</h2>
+        <form id="quizForm">
+            <label for="q1">1. Quais os principais Benefícios do Chá DiAmadeu?</label>
+            <input type="radio" name="q1" value="a"> Alívio de dores e desintoxicação do organismo.
+<br>
+            <input type="radio" name="q1" value="b"> Engordar e comer mais<br>
+            <input type="radio" name="q1" value="c"> Dormir mais e trabalhar mais<br><br>
+
+            <label for="q1">1. Quantas Vezes Tomar o Chá DiAmadeu?</label>
+            <input type="radio" name="q1" value="a"> 1
+<br>
+            <input type="radio" name="q1" value="b"> 12<br>
+            <input type="radio" name="q1" value="c"> 3<br><br>
+
+            <button type="button" onclick="submitQuiz()">Submit</button>
+        </form>
+
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function submitQuiz() {
+            var score = 0;
+            var totalQuestions = 2; // Total number of questions in the quiz
+
+            // Check question 1
+            if (document.querySelector('input[name="q1"]:checked') !== null) {
+                var answer1 = document.querySelector('input[name="q1"]:checked').value;
+                if (answer1 === 'a') {
+                    score++;
+                }
+            }
+
+            // Check question 2
+            if (document.querySelector('input[name="q2"]:checked') !== null) {
+                var answer2 = document.querySelector('input[name="q2"]:checked').value;
+                if (answer2 === 'b') {
+                    score++;
+                }
+            }
+
+            // Display result
+            var result = document.getElementById('result');
+            result.innerHTML = "You scored " + score + " out of " + totalQuestions + "!";
+        }
+    </script>
+
+</body>
+</html>
